@@ -26,6 +26,8 @@ class IndexController extends Controller
             ]
         ];
 
-        return view('index', compact('programs'));
+        $news = \App\Models\News::latest()->take(3)->get();
+
+        return view('index', compact('programs', 'news'));
     }
 }

@@ -99,36 +99,27 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <!-- Artikel berita 1 -->
-                <article
-                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 overflow-hidden border border-gray-100">
-                    <div class="relative overflow-hidden">
-                        <img src="{{ asset('img/ic_poster_news.webp') }}" alt="Siswa praktikum telekomunikasi"
-                            class="w-full h-48 sm:h-52 md:h-60 object-cover group-hover:scale-105 transition-transform">
-                        <div
-                            class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-[#fe914e] text-white px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-medium">
-                            Prestasi
+                @foreach ($news as $item)
+                    <div
+                        class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 hover:scale-105">
+                        <img src="{{ asset('img/' . $item->image) }}" alt="{{ $item->title }}"
+                            class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-heading font-semibold mb-3">{{ $item->title }}</h3>
+                            <p class="text-gray-600 mb-4 leading-relaxed text-sm sm:text-base">
+                                {{ Str::limit($item->content, 100) }}
+                            </p>
+                            <button id="news-button" data-url="{{ route('news') }}"
+                                class="text-[#fe914e] font-semibold hover:text-orange-600 transition-colors text-sm sm:text-base inline-flex items-center">
+                                Baca Selengkapnya
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
                         </div>
                     </div>
-                    <div class="p-5 sm:p-6 md:p-8">
-                        <div class="text-xs sm:text-sm text-gray-500 font-medium mb-2 sm:mb-3">06 Agustus 2025</div>
-                        <h3
-                            class="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-orange-600 transition-colors">
-                            Juara 6 Lomba Kompetensi Siswa ITSSB
-                        </h3>
-                        <p class="text-gray-600 mb-5 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                            Tim siswa SMK Telekomunikasi Telesandi Bekasi meraih juara keenam dalam kompetisi ITSSB di
-                            tingkat nasional dengan solusi inovatif...
-                        </p>
-                        <button id="news-button" data-url="{{ route('news') }}"
-                            class="inline-flex items-center cursor-pointer align-middle text-[#fe914e] font-semibold hover:text-orange-600 transition-colors text-sm sm:text-base">
-                            Baca Selengkapnya
-                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </button>
-                    </div>
-                </article>
+                @endforeach
             </div>
         </div>
     </section>
