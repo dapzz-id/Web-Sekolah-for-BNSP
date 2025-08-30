@@ -46,7 +46,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 hover:scale-105">
                     <img src="{{ asset('img/ic_tomcat.webp') }}" alt="Tomcat Club" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-heading font-semibold mb-3">Tomcat Club</h3>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 hover:scale-105">
                     <img src="{{ asset('img/ic_senimedia.webp') }}" alt="Seni Media" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-heading font-semibold mb-3">Seni Media</h3>
